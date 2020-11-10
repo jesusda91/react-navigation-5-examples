@@ -11,16 +11,28 @@ function HomeScreen({ navigation, extraData }) {
 			<Text>{id}</Text>
 			<Button
 				title="Go to Details"
-				onPress={() => navigation.navigate('Details')}
+				onPress={() => navigation.navigate('Details', { foo: "bar", id: 2 })}
 			/>
 		</View>
 	);
 }
 
-function DetailsScreen() {
+function DetailsScreen({ route, navigation }) {
+	const { foo, id } = route.params;
 	return (
 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 			<Text>Details Screen</Text>
+			<Text>{id}</Text>
+			<Text>{foo}</Text>
+			<Button
+				title="Go to Details... again"
+				onPress={() => navigation.push('Details', { id: Math.floor(Math.random() * 100)})}
+			/>
+			<Button title="Go back" onPress={() => navigation.goBack()} />
+			<Button
+				title="Go back to first screen in stack"
+				onPress={() => navigation.popToTop()}
+			/>
 		</View>
 	);
 }
