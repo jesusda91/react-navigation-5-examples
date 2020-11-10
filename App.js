@@ -3,6 +3,7 @@ import { View, Text, Button, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TabNavigationScreen from './TabNavigationScreen';
+import StackNavigatorForTabs from './StackNavigatorForTabs';
 
 const ProfileScreen = ({ navigation }) => {
 	return (
@@ -53,6 +54,10 @@ const HomeScreen = ({ navigation, extraData }) => {
 			<Button
 				onPress={() => navigation.navigate('TabNavigationScreen')}
 				title="TabNavigationScreen"
+			/>
+			<Button
+				onPress={() => navigation.navigate('StackNavigatorForTabs')}
+				title="StackNavigatorForTabs"
 			/>
 		</View>
 	);
@@ -161,6 +166,10 @@ const MainStackScreen = () => {
 			<MainStack.Screen
 				name="TabNavigationScreen"
 				component={TabNavigationScreen}
+			/>
+			<MainStack.Screen
+				name="StackNavigatorForTabs"
+				component={StackNavigatorForTabs}
 			/>
 		</MainStack.Navigator>
 	);
