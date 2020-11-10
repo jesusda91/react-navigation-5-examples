@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import TabNavigationScreen from './TabNavigationScreen';
 import StackNavigatorForTabs from './StackNavigatorForTabs';
+import DrawerNavigation from './DrawerNavigation';
+import CustomDrawerNavigation from './CustomDrawerNavigation';
 
 const ProfileScreen = ({ navigation }) => {
 	return (
@@ -58,6 +60,14 @@ const HomeScreen = ({ navigation, extraData }) => {
 			<Button
 				onPress={() => navigation.navigate('StackNavigatorForTabs')}
 				title="StackNavigatorForTabs"
+			/>
+			<Button
+				onPress={() => navigation.navigate('DrawerNavigation')}
+				title="DrawerNavigation"
+			/>
+			<Button
+				onPress={() => navigation.navigate('CustomDrawerNavigation')}
+				title="CustomDrawerNavigation"
 			/>
 		</View>
 	);
@@ -170,6 +180,14 @@ const MainStackScreen = () => {
 			<MainStack.Screen
 				name="StackNavigatorForTabs"
 				component={StackNavigatorForTabs}
+			/>
+			<MainStack.Screen
+				name="DrawerNavigation"
+				component={DrawerNavigation}
+			/>
+			<MainStack.Screen
+				name="CustomDrawerNavigation"
+				component={CustomDrawerNavigation}
 			/>
 		</MainStack.Navigator>
 	);
