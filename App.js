@@ -2,6 +2,7 @@ import * as React from 'react';
 import { View, Text, Button, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import TabNavigationScreen from './TabNavigationScreen';
 
 const ProfileScreen = ({ navigation }) => {
 	return (
@@ -48,6 +49,10 @@ const HomeScreen = ({ navigation, extraData }) => {
 			<Button
 				onPress={() => navigation.navigate('MyModal')}
 				title="Open Modal"
+			/>
+			<Button
+				onPress={() => navigation.navigate('TabNavigationScreen')}
+				title="TabNavigationScreen"
 			/>
 		</View>
 	);
@@ -152,6 +157,10 @@ const MainStackScreen = () => {
 						/>
 					),
 				}}
+			/>
+			<MainStack.Screen
+				name="TabNavigationScreen"
+				component={TabNavigationScreen}
 			/>
 		</MainStack.Navigator>
 	);
